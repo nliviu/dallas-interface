@@ -1,0 +1,25 @@
+author: nliviu
+description: Implements the common interface to be used with dallas-onewire, dallas-rmt and dallas-temperature
+type: lib
+version: 1.0
+
+sources:
+  - src
+  
+includes:
+  - include
+
+config_schema:
+
+tags:
+  - c
+
+libs:
+
+build_vars:
+
+cdefs:
+
+manifest_version: 2017-09-29
+
+
