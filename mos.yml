@@ -1,5 +1,5 @@
-author: nliviu
-description: Implements the common interface to be used with dallas-onewire, dallas-rmt and dallas-temperature
+author: Liviu Nicolescu <nliviu@gmail.com>
+description: Implements the common interface to be used with dallas-onewire and dallas-esp32
 type: lib
 version: 1.0
 
@@ -11,14 +11,15 @@ includes:
 
 config_schema:
 
-tags:
-  - c
-
 libs:
 
 build_vars:
 
 cdefs:
+
+tags:
+  - c
+  - c++
 
 manifest_version: 2017-09-29
 
