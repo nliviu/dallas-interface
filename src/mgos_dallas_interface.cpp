@@ -1,4 +1,5 @@
 #include "mgos_dallas_interface.h"
+#include <math.h>
 
 #ifndef NULL
 #define NULL 0
@@ -153,7 +154,7 @@ int16_t mgos_dallas_get_temp(Dallas* dt, const uint8_t* addr)
 int mgos_dallas_get_tempc(Dallas* dt, const uint8_t* addr)
 {
     return (NULL == dt) ? DEVICE_DISCONNECTED_C
-        : (int) (0.5 + dt->getTempC((uint8_t* ) addr)*  100.0);
+        : round(dt->getTempC((uint8_t* ) addr)*  100.0);//(int) (0.5 + dt->getTempC((uint8_t* ) addr)*  100.0);
 }
 
 int mgos_dallas_get_tempf(Dallas* dt, const uint8_t* addr)
