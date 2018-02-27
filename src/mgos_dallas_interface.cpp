@@ -160,19 +160,19 @@ int mgos_dallas_get_tempc(Dallas* dt, const uint8_t* addr)
 int mgos_dallas_get_tempf(Dallas* dt, const uint8_t* addr)
 {
     return (NULL == dt) ? DEVICE_DISCONNECTED_F
-        : (int) (0.5 + dt->getTempF((uint8_t* ) addr)*  100.0);
+        : round(dt->getTempF((uint8_t* ) addr)*  100.0);//(int) (0.5 + dt->getTempF((uint8_t* ) addr)*  100.0);
 }
 
 int mgos_dallas_get_tempc_by_index(Dallas* dt, int idx)
 {
     return (NULL == dt) ? DEVICE_DISCONNECTED_C
-        : (int) (0.5 + dt->getTempCByIndex(idx)*  100.0);
+        : round(dt->getTempCByIndex(idx)*  100.0);//(int) (0.5 + dt->getTempCByIndex(idx)*  100.0);
 }
 
 int mgos_dallas_get_tempf_by_index(Dallas* dt, int idx)
 {
     return (NULL == dt) ? DEVICE_DISCONNECTED_F
-        : (int) (0.5 + dt->getTempFByIndex(idx)*  100.0);
+        : round(dt->getTempFByIndex(idx)*  100.0);//(int) (0.5 + dt->getTempFByIndex(idx)*  100.0);
 }
 
 bool mgos_dallas_is_parasite_power_mode(Dallas* dt)
