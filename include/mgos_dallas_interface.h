@@ -5,6 +5,7 @@
 #else
 typedef struct DallasTag Dallas;
 #include <stdint.h>
+#include "dallas_defines.h"
 #endif
 
 #ifdef __cplusplus
