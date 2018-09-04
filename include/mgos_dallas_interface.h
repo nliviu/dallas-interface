@@ -9,21 +9,20 @@ typedef struct DallasTag Dallas;
 #endif
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 /*
  * Initializes the mgos_dallas_ driver with a GPIO `pin`
  * Return value: handle opaque pointer.
  */
-//Dallas* mgos_dallas_create(uint8_t pin);
+// Dallas* mgos_dallas_create(uint8_t pin);
 
 /*
  * Destructor
  * Close mgos_dallas_ handle. Return value: none.
  */
-void mgos_dallas_close(Dallas* dt);
+void mgos_dallas_close(Dallas *dt);
 
 /*
  *  Initialises the 1-Wire bus.
@@ -56,14 +55,16 @@ bool mgos_dallas_valid_family(Dallas *dt, const uint8_t *addr);
 bool mgos_dallas_get_address(Dallas *dt, uint8_t *addr, int idx);
 
 /*
- * Attempt to determine if the device at the given address is connected to the bus.
+ * Attempt to determine if the device at the given address is connected to the
+ * bus.
  * Return false if the device is not connected or an operaiton failed.
  * Returns true otherwise.
  */
 bool mgos_dallas_is_connected(Dallas *dt, const uint8_t *addr);
 
 /*
- * Attempts to determine if the device at the given address is connected to the bus.
+ * Attempts to determine if the device at the given address is connected to the
+ * bus.
  * Also allows for updating the read scratchpad.
  * Return false if the device is not connected or an operaiton failed.
  * Returns true otherwise.
@@ -80,7 +81,8 @@ bool mgos_dallas_read_scratch_pad(Dallas *dt, const uint8_t *addr, uint8_t *sp);
 /*
  * Writes device's scratchpad.
  */
-void mgos_dallas_write_scratch_pad(Dallas *dt, const uint8_t *addr, const uint8_t *sp);
+void mgos_dallas_write_scratch_pad(Dallas *dt, const uint8_t *addr,
+                                   const uint8_t *sp);
 
 /*
  * Read device's power requirements.
@@ -111,7 +113,8 @@ int mgos_dallas_get_resolution(Dallas *dt, const uint8_t *addr);
  * Return true if a new value was stored.
  * Returns false otherwise.
  */
-bool mgos_dallas_set_resolution(Dallas *dt, const uint8_t *addr, int res, bool skip_global_calc);
+bool mgos_dallas_set_resolution(Dallas *dt, const uint8_t *addr, int res,
+                                bool skip_global_calc);
 
 /*
  * Sets the waitForConversion flag.
@@ -147,7 +150,8 @@ void mgos_dallas_request_temperatures(Dallas *dt);
  * Returns false if a device is disconnected or if an operaiton failed.
  * Returns true otherwise.
  */
-bool mgos_dallas_request_temperatures_by_address(Dallas *dt, const uint8_t *addr);
+bool mgos_dallas_request_temperatures_by_address(Dallas *dt,
+                                                 const uint8_t *addr);
 
 /*
  * Sends command for one device to perform a temperature conversion by index.
@@ -199,7 +203,8 @@ bool mgos_dallas_is_parasite_power_mode(Dallas *dt);
 bool mgos_dallas_is_conversion_complete(Dallas *dt);
 
 /*
- * Returns number of milliseconds to wait till conversion is complete (based on IC datasheet)
+ * Returns number of milliseconds to wait till conversion is complete (based on
+ * IC datasheet)
  * or 0 if an operaiton failed.
  */
 int16_t mgos_dallas_millis_to_wait_for_conversion(Dallas *dt, int res);
@@ -207,4 +212,3 @@ int16_t mgos_dallas_millis_to_wait_for_conversion(Dallas *dt, int res);
 #ifdef __cplusplus
 }
 #endif
-
