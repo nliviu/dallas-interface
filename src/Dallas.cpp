@@ -99,6 +99,7 @@ bool Dallas::validFamily(const uint8_t *deviceAddress) {
     case DS1825MODEL:
     case DS28EA00MODEL:
       ret = true;
+      break;
     default:
       ret = false;
   }
